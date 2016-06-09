@@ -56,7 +56,7 @@ function decrypt(key, encryptedData) {
 	decoded = decipher.update(encryptedData);
 
 	final = decipher.final();
-	final.copy(decoded, decoded.length - 1);
+	final.copy(decoded, decoded.length ? decoded.length - 1 : 0);
 
 	padding = decoded[decoded.length - 1];
 	if (padding) {
